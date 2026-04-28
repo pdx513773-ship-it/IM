@@ -5,19 +5,20 @@ package IM;
 option cc_generic_services = true;
 
 message SpeechRecognitionReq {
-    string request_id = 1;
-    bytes speech_content = 2;
-    optional string user_id = 3;
-    optional string session_id = 4;
+    string request_id = 1;  //请求ID
+    bytes speech_content = 2;  //语音内容，二进制数据
+    optional string user_id = 3;  //用户ID
+    optional string session_id = 4;  //登录会话ID  网关进行身份鉴权
 }
 
 message SpeechRecognitionRsp {
-    string request_id = 1;
-    bool success = 2;
-    string errmsg = 3;
-    string recognition_result = 4;
+    string request_id = 1; //请求ID
+    bool success = 2; //是否成功 处理结果标志
+    string errmsg = 3; //错误信息 失败原因
+    string recognition_result = 4; //语音识别结果 文字数据
 }
 
+//语音识别RPC服务及接口的定义
 service SpeechService {
     rpc SpeechRecognition(SpeechRecognitionReq) returns (SpeechRecognitionRsp);
 }

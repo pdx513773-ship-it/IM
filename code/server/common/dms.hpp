@@ -10,6 +10,7 @@
 class DMSClient
 {
 public:
+    using ptr = std::shared_ptr<DMSClient>;
     DMSClient(const std::string &access_key_id, const std::string &access_key_secret)
     {
         AlibabaCloud::InitializeSdk();
