@@ -6,6 +6,8 @@
 #include <json/json.h>
 #include "logger.hpp"
 
+namespace IM
+{
 bool Serialize(const Json::Value &root, std::string &output)
 {
     Json::StreamWriterBuilder writerBuilder;
@@ -301,3 +303,4 @@ private:
     Json::Value _should = Json::Value(Json::arrayValue);
     std::shared_ptr<elasticlient::Client> _client;
 };
+}

@@ -9,6 +9,8 @@
 #include <unordered_set>
 #include "./logger.hpp"
 
+namespace IM
+{
 using ChannelPtr = std::shared_ptr<brpc::Channel>; 
 class ServiceChannel
 {
@@ -171,3 +173,4 @@ class ServiceManager
         std::unordered_set<std::string> _follow_services;
         std::unordered_map<std::string, ServiceChannel::ptr> _services;
 };
+}

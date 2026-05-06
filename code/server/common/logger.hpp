@@ -8,6 +8,8 @@
 
 
 
+namespace IM
+{
 
 std::shared_ptr<spdlog::logger> g_default_logger;
 //mode 运行模式 true - 发布模式 false - 调试模式
@@ -39,3 +41,4 @@ void init_log(bool mode,const std::string& log_file_path,int level)
 #define LOG_WARN(format, ...) g_default_logger->warn("[{}:{}] " format, __FILE__, __LINE__, ##__VA_ARGS__)
 #define LOG_ERROR(format, ...) g_default_logger->error("[{}:{}] " format, __FILE__, __LINE__, ##__VA_ARGS__)
 #define LOG_CRITICAL(format, ...) g_default_logger->critical("[{}:{}] " format, __FILE__, __LINE__, ##__VA_ARGS__)  
+}

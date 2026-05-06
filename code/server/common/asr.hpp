@@ -1,5 +1,8 @@
 #include "aip-cpp-sdk/speech.h"
 #include "logger.hpp"
+
+namespace IM
+{
 class ASRClient
 {
     public:
@@ -23,3 +26,4 @@ class ASRClient
     private:
         std::unique_ptr<aip::Speech> _client;
 };
+}

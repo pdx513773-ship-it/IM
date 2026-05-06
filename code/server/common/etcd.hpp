@@ -10,6 +10,8 @@
 #include <iostream>
 #include <functional>
 
+namespace IM
+{
 // 服务注册客服端类
 class Registry
 {
@@ -103,4 +105,4 @@ private:
     std::shared_ptr<etcd::Client> _client;
     std::shared_ptr<etcd::Watcher> _watcher;
 };
-
+}

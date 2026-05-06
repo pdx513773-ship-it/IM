@@ -12,6 +12,8 @@
 
 //
 
+namespace IM
+{
 class MQClient
 {
 public:
@@ -128,3 +130,4 @@ private:
     std::condition_variable _startup_cv;
     bool _async_ready = false;
 };
+}

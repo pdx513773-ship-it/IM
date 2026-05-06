@@ -7,6 +7,9 @@
 #include <alibabacloud/core/CommonResponse.h>
 #include "logger.hpp"
 
+
+namespace IM
+{
 class DMSClient
 {
 public:
@@ -58,3 +61,4 @@ public:
 private:
     std::unique_ptr<AlibabaCloud::CommonClient> _client;
 };
+}
