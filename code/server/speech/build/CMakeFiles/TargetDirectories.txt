@@ -1,4 +1,5 @@
 /home/pdx/pdx/IM/code/server/speech/build/CMakeFiles/speech_server.dir
+/home/pdx/pdx/IM/code/server/speech/build/CMakeFiles/speech_client.dir
 /home/pdx/pdx/IM/code/server/speech/build/CMakeFiles/edit_cache.dir
 /home/pdx/pdx/IM/code/server/speech/build/CMakeFiles/rebuild_cache.dir
 /home/pdx/pdx/IM/code/server/speech/build/CMakeFiles/list_install_components.dir

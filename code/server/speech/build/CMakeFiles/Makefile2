@@ -64,6 +64,7 @@ CMAKE_BINARY_DIR = /home/pdx/pdx/IM/code/server/speech/build
 
 # The main recursive "all" target.
 all: CMakeFiles/speech_server.dir/all
+all: CMakeFiles/speech_client.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -72,6 +73,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/speech_server.dir/clean
+clean: CMakeFiles/speech_client.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -81,7 +83,7 @@ clean: CMakeFiles/speech_server.dir/clean
 CMakeFiles/speech_server.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/speech_server.dir/build.make CMakeFiles/speech_server.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/speech_server.dir/build.make CMakeFiles/speech_server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/pdx/pdx/IM/code/server/speech/build/CMakeFiles --progress-num=1,2,3 "Built target speech_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/pdx/pdx/IM/code/server/speech/build/CMakeFiles --progress-num=4,5,6 "Built target speech_server"
 .PHONY : CMakeFiles/speech_server.dir/all
 
 # Build rule for subdir invocation for target.
@@ -99,6 +101,32 @@ speech_server: CMakeFiles/speech_server.dir/rule
 CMakeFiles/speech_server.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/speech_server.dir/build.make CMakeFiles/speech_server.dir/clean
 .PHONY : CMakeFiles/speech_server.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/speech_client.dir
+
+# All Build rule for target.
+CMakeFiles/speech_client.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/speech_client.dir/build.make CMakeFiles/speech_client.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/speech_client.dir/build.make CMakeFiles/speech_client.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/pdx/pdx/IM/code/server/speech/build/CMakeFiles --progress-num=1,2,3 "Built target speech_client"
+.PHONY : CMakeFiles/speech_client.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/speech_client.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pdx/pdx/IM/code/server/speech/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/speech_client.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pdx/pdx/IM/code/server/speech/build/CMakeFiles 0
+.PHONY : CMakeFiles/speech_client.dir/rule
+
+# Convenience name for target.
+speech_client: CMakeFiles/speech_client.dir/rule
+.PHONY : speech_client
+
+# clean rule for target.
+CMakeFiles/speech_client.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/speech_client.dir/build.make CMakeFiles/speech_client.dir/clean
+.PHONY : CMakeFiles/speech_client.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

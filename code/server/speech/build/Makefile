@@ -174,6 +174,19 @@ speech_server/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/speech_server.dir/build.make CMakeFiles/speech_server.dir/build
 .PHONY : speech_server/fast
 
+#=============================================================================
+# Target rules for targets named speech_client
+
+# Build rule for target.
+speech_client: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 speech_client
+.PHONY : speech_client
+
+# fast build rule for target.
+speech_client/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/speech_client.dir/build.make CMakeFiles/speech_client.dir/build
+.PHONY : speech_client/fast
+
 source/speech_server.o: source/speech_server.cc.o
 .PHONY : source/speech_server.o
 
@@ -204,6 +217,7 @@ speech.pb.o: speech.pb.cc.o
 # target to build an object file
 speech.pb.cc.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/speech_server.dir/build.make CMakeFiles/speech_server.dir/speech.pb.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/speech_client.dir/build.make CMakeFiles/speech_client.dir/speech.pb.cc.o
 .PHONY : speech.pb.cc.o
 
 speech.pb.i: speech.pb.cc.i
@@ -212,6 +226,7 @@ speech.pb.i: speech.pb.cc.i
 # target to preprocess a source file
 speech.pb.cc.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/speech_server.dir/build.make CMakeFiles/speech_server.dir/speech.pb.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/speech_client.dir/build.make CMakeFiles/speech_client.dir/speech.pb.cc.i
 .PHONY : speech.pb.cc.i
 
 speech.pb.s: speech.pb.cc.s
@@ -220,7 +235,32 @@ speech.pb.s: speech.pb.cc.s
 # target to generate assembly for a file
 speech.pb.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/speech_server.dir/build.make CMakeFiles/speech_server.dir/speech.pb.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/speech_client.dir/build.make CMakeFiles/speech_client.dir/speech.pb.cc.s
 .PHONY : speech.pb.cc.s
+
+test/speech_client.o: test/speech_client.cc.o
+.PHONY : test/speech_client.o
+
+# target to build an object file
+test/speech_client.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/speech_client.dir/build.make CMakeFiles/speech_client.dir/test/speech_client.cc.o
+.PHONY : test/speech_client.cc.o
+
+test/speech_client.i: test/speech_client.cc.i
+.PHONY : test/speech_client.i
+
+# target to preprocess a source file
+test/speech_client.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/speech_client.dir/build.make CMakeFiles/speech_client.dir/test/speech_client.cc.i
+.PHONY : test/speech_client.cc.i
+
+test/speech_client.s: test/speech_client.cc.s
+.PHONY : test/speech_client.s
+
+# target to generate assembly for a file
+test/speech_client.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/speech_client.dir/build.make CMakeFiles/speech_client.dir/test/speech_client.cc.s
+.PHONY : test/speech_client.cc.s
 
 # Help Target
 help:
@@ -234,6 +274,7 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... speech_client"
 	@echo "... speech_server"
 	@echo "... source/speech_server.o"
 	@echo "... source/speech_server.i"
@@ -241,6 +282,9 @@ help:
 	@echo "... speech.pb.o"
 	@echo "... speech.pb.i"
 	@echo "... speech.pb.s"
+	@echo "... test/speech_client.o"
+	@echo "... test/speech_client.i"
+	@echo "... test/speech_client.s"
 .PHONY : help
 
 

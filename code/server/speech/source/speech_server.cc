@@ -11,19 +11,20 @@ DEFINE_string(secret_key,"L4bsXTNC84CK3Wt8Nsd0h7lsU5FkRzA4","百度云 Secret Ke
 
 DEFINE_string(registry_host,"http://127.0.0.1:2379","etcd地址");
 DEFINE_string(basedir,"/service","服务注册根目录");
-DEFINE_string(instance_name,"/speech/instance","实例名称");
-DEFINE_string(access_host,"127.0.0.1:8082","外部访问地址");
+DEFINE_string(instance_name,"/speech_service/instance","实例名称");
+DEFINE_string(access_host,"127.0.0.1:10001","外部访问地址");
 DEFINE_int32(listen_port,10001,"Rpc服务器监听端口");
 DEFINE_int32(idle_timeout,-1,"Rpc调用超时时间");
 DEFINE_int32(rpc_threads,1,"Rpc调用线程数");
 
+using namespace IM;
 
 int main(int argc, char* argv[])
 {
     // 解析命令行参数
     gflags::ParseCommandLineFlags(&argc, &argv, true);
     // 初始化日志系统   
-    init_log(FLAGS_debug_enable, FLAGS_log_file_path, FLAGS_log_level);
+    IM::init_log(FLAGS_debug_enable, FLAGS_log_file_path, FLAGS_log_level);
 
     IM::SpeechServerBuilder builder;
     builder.make_asr_object(FLAGS_app_id, FLAGS_api_key, FLAGS_secret_key);

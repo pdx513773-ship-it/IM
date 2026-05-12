@@ -27,6 +27,7 @@ namespace IM
                 response->set_success(false);
                 response->set_errmsg(err + "语音识别失败");
                 response->set_request_id(request->request_id());
+                return;
             }
             //组织响应
             response->set_success(true);
@@ -84,9 +85,9 @@ namespace IM
                 abort();
             }
             _rpc_server = std::make_shared<brpc::Server>();
-            SpeechServerImpl speech_service(_asr_client);
-            int ret = _rpc_server->AddService(&speech_service, 
-                brpc::ServiceOwnership::SERVER_DOESNT_OWN_SERVICE);
+            auto speech_service = new SpeechServerImpl(_asr_client);
+            int ret = _rpc_server->AddService(speech_service, 
+                brpc::SERVER_OWNS_SERVICE);//SERVER_OWNS_SERVICE表示服务器会负责删除这个服务对象
             if(ret == -1)
             {
                 LOG_ERROR("Failed to add service");

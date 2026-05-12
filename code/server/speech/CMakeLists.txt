@@ -9,7 +9,7 @@ project(speech_server)
 ##1.添加所需要的proto映射代码文件名称
 set(proto_path ${CMAKE_CURRENT_SOURCE_DIR}/../proto)
 set(proto_files speech.proto)
-
+set(test_client "speech_client")
 ##2.检测框架代码是否生成
 set(proto_srcs "")  # 初始化变量
 
@@ -37,12 +37,6 @@ aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/source src_files)
 
 #5.声明目标及依赖
 add_executable(speech_server ${src_files} ${proto_srcs})
-
-#6.设置头文件搜索路径
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../common)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../third/include)
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
-
 #7.设置链接库
 target_link_libraries(speech_server 
     gflags 
@@ -56,9 +50,39 @@ target_link_libraries(speech_server
     crypto 
     pthread
     cpprest
+    gtest
+    gtest_main
     etcd-cpp-api
     /usr/lib/x86_64-linux-gnu/libjsoncpp.so.19
 )
+
+set(test_files "")
+aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/test test_files)
+add_executable(${test_client} ${test_files} ${proto_srcs})
+
+target_link_libraries(${test_client}
+    gflags 
+    fmt 
+    brpc 
+    protobuf 
+    leveldb 
+    spdlog
+    curl
+    ssl 
+    crypto 
+    pthread
+    cpprest
+    gtest
+    gtest_main
+    etcd-cpp-api
+    /usr/lib/x86_64-linux-gnu/libjsoncpp.so.19
+)
+#6.设置头文件搜索路径
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../common)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../third/include)
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+
+
 
 #8.安装
 INSTALL(TARGETS speech_server RUNTIME DESTINATION bin)
