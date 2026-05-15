@@ -1,4 +1,4 @@
-#include "../../../common/data-mysql.hpp"
+#include "../../../common/data_mysql.hpp"
 #include "../../../odb/user.hxx"
 #include "user-odb.hxx"
 #include <gflags/gflags.h>
@@ -84,6 +84,8 @@ DEFINE_string(log_file_path, "Log/log.txt", "日志文件路径");
 DEFINE_int32(log_level, 0, "日志输出等级");
 int main(int argc, char *argv[])
 {
+    google::ParseCommandLineFlags(&argc, &argv, true);
+
     IM::init_log(FLAGS_debug_enable, FLAGS_log_file_path, FLAGS_log_level);
 
    auto db = IM::ODBFactory::create(

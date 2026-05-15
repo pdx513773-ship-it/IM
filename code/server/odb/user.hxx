@@ -22,7 +22,7 @@ namespace IM
         User(const std::string &user_id, const std::string &nickname, const std::string &password)
             : _user_id(user_id), _nickname(nickname), _password(password) {}
         std::string user_id() const { return _user_id; }
-        
+        void user_id(const std::string &user_id) { _user_id = user_id;}
         std::string nickname() const { return _nickname ? *_nickname : ""; }
         void nickname(const std::string &nickname) { _nickname = nickname; }
 
