@@ -20,8 +20,15 @@ int main(int argc, char *argv[])
     es_user->appendData("003", "12345678903", "王五", "这是王五的个人简介", "avatar003");
     es_user->appendData("004", "12345678904", "赵六", "这是赵六的个人简介", "avatar004");
     es_user->appendData("005", "12345678905", "钱七", "这是钱七的个人简介", "avatar005");
-    
-    auto res = es_user->search("12345678902", {"001"});
+    es_user->appendData("006", "12345678906", "小猪1", "这是小猪1的个人简介", "avatar006");
+    es_user->appendData("007", "12345678906", "小猪2", "这是小猪2的个人简介", "avatar007");
+    // auto res = es_user->search("12345678905", {"001"});
+    // for(auto& item : res)
+    // {
+    //     IM::LOG_INFO("ES搜索结果: user_id={}, phone={}, nickname={}, description={}, avatar_id={}",
+    //         item.user_id(), item.phone(), item.nickname(), item.description(), item.avatar_id());
+    // }
+    auto res = es_user->search("小猪", {"001"});
     for(auto& item : res)
     {
         IM::LOG_INFO("ES搜索结果: user_id={}, phone={}, nickname={}, description={}, avatar_id={}",
