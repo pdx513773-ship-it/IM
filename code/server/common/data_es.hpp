@@ -24,6 +24,7 @@ namespace IM
     class ESUser
     {
     public:
+        using ptr = std::shared_ptr<ESUser>;
         ESUser(const std::shared_ptr<elasticlient::Client> &client) : _client(client) {}
 
         void createIndex()
@@ -40,7 +41,7 @@ namespace IM
             }
             LOG_INFO("创建ES索引成功");
         }
-        void appendData(const std::string &user_id,
+        bool appendData(const std::string &user_id,
                         const std::string &phone,
                         const std::string &nickname,
                         const std::string &description,
@@ -58,6 +59,7 @@ namespace IM
                 LOG_ERROR("插入ES数据失败");
             }
             LOG_INFO("插入ES数据成功");
+            return ret;
         }
         std::vector<User> search(const std::string &key, const std::vector<std::string> &uid_list)
         {

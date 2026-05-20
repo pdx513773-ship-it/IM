@@ -25,6 +25,7 @@ namespace IM
     class Session
     {
         public:
+            using ptr = std::shared_ptr<Session>;
             Session(const std::shared_ptr<sw::redis::Redis> &redis_client):
                 _redis_client(redis_client){}
                 
@@ -50,6 +51,7 @@ namespace IM
     class Status
     {
         public:
+            using ptr = std::shared_ptr<Status>;
             Status(const std::shared_ptr<sw::redis::Redis> &redis_client):
                 _redis_client(redis_client){}
             void append(const std::string &user_id)
@@ -78,12 +80,14 @@ namespace IM
     class Codes
     {
         public:
+            using ptr = std::shared_ptr<Codes>;
             Codes(const std::shared_ptr<sw::redis::Redis> &redis_client):
                 _redis_client(redis_client){}
-            void append(const std::string &cid,const std::string &code,
+            bool append(const std::string &cid,const std::string &code,
                 const std::chrono::milliseconds &expire_time = std::chrono::milliseconds(60000))
             {
                 _redis_client->set(cid,code,expire_time);
+                return true;
             }
             void remove(const std::string &cid)
             {

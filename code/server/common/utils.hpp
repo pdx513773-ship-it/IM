@@ -35,7 +35,19 @@ namespace IM
         ss<<std::setw(4)<<std::setfill('0')<<std::hex<<tmp;
         return ss.str();
     }
+    std::string vcode()
+    {
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::uniform_int_distribution<> dis(0, 9);
 
+        std::stringstream ss;
+        for(int i = 0; i < 4; i++)
+        {
+            ss<<dis(gen);
+        }
+        return ss.str();
+    }
     bool readFile(const std::string& filename, std::string& content)
     {
         std::ifstream file(filename,std::ios::binary | std::ios::in);

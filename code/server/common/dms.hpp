@@ -30,7 +30,7 @@ public:
         AlibabaCloud::ShutdownSdk();
     }
 
-    void send(const std::string &phone_number, const std::string &code)
+    bool send(const std::string &phone_number, const std::string &code)
     {
         AlibabaCloud::CommonRequest request(AlibabaCloud::CommonRequest::RequestPattern::RpcPattern);
 
@@ -48,6 +48,7 @@ public:
         if (response.isSuccess())
         {
             LOG_INFO("send sms code success, phone={}, payload={}", phone_number, response.result().payload().c_str());
+            return true;
         }   
         else
         {
@@ -55,6 +56,7 @@ public:
             LOG_ERROR("error code: {}", response.error().errorCode().c_str());
             LOG_ERROR("request id: {}", response.error().requestId().c_str());
             LOG_ERROR("phone={}", phone_number);
+            return false;
         }
     }
 

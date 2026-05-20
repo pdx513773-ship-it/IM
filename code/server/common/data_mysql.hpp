@@ -33,6 +33,7 @@ namespace IM
     class UserTable
     {
     public:
+        using ptr = std::shared_ptr<UserTable>;
         UserTable(const std::shared_ptr<odb::database> &db) : _db(db) {}
 
         bool insert(const std::shared_ptr<User> &user)
